@@ -16,7 +16,8 @@
 | 🚀 **Universal Setup Installer (.exe)** | Windows 7, 8, 10, 11 (32-bit व 64-bit दोनों हेतु अनुशंसित) | [**Download Setup (v1.0.0)**](https://github.com/yadavnagji-web/Digital-Bell/releases/download/v1.0.0/DigitalBellSetup.exe) |
 | ⚡ **64-bit Dedicated Setup (.exe)** | Windows 64-bit सिस्टम्स के लिए | [**Download 64-bit Setup**](https://github.com/yadavnagji-web/Digital-Bell/releases/download/v1.0.0/DigitalBellSetup_64bit.exe) |
 | 📦 **Portable ZIP (बिना इंस्टॉल चलाएं)** | सीधे Extract करके चलाएं, किसी इंस्टॉलेशन की ज़रूरत नहीं | [**Download Portable ZIP**](https://github.com/yadavnagji-web/Digital-Bell/releases/download/v1.0.0/DigitalBell-Portable.zip) |
-| 🌐 **सभी रिलीज़ और अपडेट्स** | GitHub Releases पेज | [**All Releases**](https://github.com/yadavnagji-web/Digital-Bell/releases/latest) |
+| 🌐 **ऑनलाइन वेब वर्शन (Live Web Bell)** | बिना इंस्टॉल किए सीधे ब्राउज़र / स्मार्ट टीवी में चलाएं | [**Live Online Bell (creativeteachers.in)**](https://www.creativeteachers.in/2025/12/digital-school-bell-system.html) |
+| 📦 **सभी रिलीज़ और अपडेट्स** | GitHub Releases पेज | [**All Releases**](https://github.com/yadavnagji-web/Digital-Bell/releases/latest) |
 
 ---
 
