@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>उपयोगकर्ता पुस्तिका (How to Use Manual) - Digital Bell</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #38bdf8;
+      --accent: #0ea5e9;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #bae6fd;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
+      --gold: #d97706;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px;
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.15), 0 8px 10px -6px rgba(2, 132, 199, 0.1);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .header {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+      color: #ffffff;
+      padding: 36px 30px;
+      text-align: center;
+      position: relative;
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .content {
+      padding: 36px 32px;
+    }
+    .section {
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .card {
+      background: #f0f9ff;
+      padding: 18px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      color: #0369a1;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .step-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    }
+    .step-content h4 {
+      font-size: 1.1rem;
+      color: #0369a1;
+      margin-bottom: 6px;
+    }
+    .step-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .alert-box {
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .alert-info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+    }
+    .alert-success {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+    .alert-warning {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin-top: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background: #f0f9ff;
+    }
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      margin-bottom: 20px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+    }
+    .btn-print:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .diagram-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      margin-top: 14px;
+      line-height: 1.8;
+      border: 1px solid #334155;
+    }
+    .designer-box {
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      border: 2px solid #0284c7;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 24px;
+      color: #0c4a6e;
+    }
+    .designer-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #0369a1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .designer-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      font-size: 1rem;
+    }
+    .designer-details strong {
+      color: #075985;
+    }
+    .footer {
+      background: #0c4a6e;
+      color: #e0f2fe;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+      .btn-print, .header button {
+        display: none;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔔 Digital Bell Pro (स्कूल ऑटोमैटिक घंटी प्रणाली)</h1>
+      <p>सम्पूर्ण संचालन निर्देश एवं उपयोगकर्ता पुस्तिका (Official How-to-Use User Manual)</p>
+      <div class="badge-container">
+        <span class="badge">संस्करण: 1.0.0 Pro</span>
+        <span class="badge">Windows 7 SP1 / 8 / 10 / 11 Compatible</span>
+        <span class="badge">32-bit & 64-bit Ready</span>
+        <span class="badge">100% Offline & Free</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <button class="btn-print" onclick="window.print()">🖨️ इस निर्देश पुस्तिका को प्रिंट करें (Print Manual)</button>
+        <span style="font-size:0.85rem; color:#64748b;">(विद्यालय सूचना पट्ट अथवा कंप्यूटर के पास लगाने हेतु)</span>
+      </div>
+
+      <!-- Section 1: Intro -->
+      <div class="section">
+        <h2 class="section-title">🌟 1. सॉफ्टवेयर का परिचय (Introduction)</h2>
+        <p><strong>Digital Bell</strong> विद्यालय, महाविद्यालय और शिक्षण संस्थानों के लिए तैयार किया गया एक उच्चस्तरीय स्वचालित घंटी एवं समय प्रबंधन सॉफ्टवेयर है। यह बिना किसी इंटरनेट, बिना किसी बाहरी ब्राउज़र और बिना किसी अतिरिक्त हार्डवेयर के सीधे आपके सामान्य कंप्यूटर या लैपटॉप से संचालित होता है।</p>
+      </div>
+
+      <!-- Section 2: Windows 7 SP1 & System Requirements -->
+      <div class="section">
+        <h2 class="section-title">💻 2. कंप्यूटर आवश्यकताएं एवं Windows 7 SP1 सपोर्ट</h2>
+        <div class="alert-box alert-success">
+          <strong>✓ Windows 7 SP1 में 100% कार्यशील:</strong> यह सॉफ्टवेयर विशेष रूप से Windows 7 Service Pack 1 (32-bit एवं 64-bit) और इसके ऊपर के सभी ऑपरेटिंग सिस्टम (Windows 8, 8.1, 10, और Windows 11) में आसानी से इंस्टॉल और रन होने के लिए अनुकूलित है।
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h3>ऑपरेटिंग सिस्टम</h3>
+            <p>Windows 7 SP1 (32-bit/64-bit), Windows 8, 8.1, 10, 11</p>
+          </div>
+          <div class="card">
+            <h3>रैम (RAM)</h3>
+            <p>न्यूनतम 1 GB (2 GB या अधिक अनुशंसित)</p>
+          </div>
+          <div class="card">
+            <h3>हार्ड डिस्क स्पेस</h3>
+            <p>मात्र 150 MB स्पेस</p>
+          </div>
+          <div class="card">
+            <h3>इंटरनेट आवश्यकता</h3>
+            <p>बिल्कुल नहीं (100% ऑफलाइन काम करता है)</p>
+          </div>
+        </div>
+        <div class="alert-box alert-info">
+          <strong>💡 Windows 7 SP1 यूजर नोट:</strong> यदि आपके Windows 7 कंप्यूटर में इंस्टॉलेशन के समय कोई सुरक्षा चेतावनी आए, तो "Run anyway" (फिर भी चलाएं) पर क्लिक करें। सॉफ्टवेयर में 32-bit (ia32) और 64-bit (x64) दोनों प्रकार के कंप्यूटरों के लिए ऑटोमैटिक सपोर्ट मौजूद है।
+        </div>
+      </div>
+
+      <!-- Section 3: Step-by-Step How to Use -->
+      <div class="section">
+        <h2 class="section-title">🚀 3. सॉफ्टवेयर उपयोग विधि (Step-by-Step Guide)</h2>
+
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>कंप्यूटर चालू करें (ऑटो-स्टार्ट)</h4>
+            <p>जैसे ही आप सुबह स्कूल का कंप्यूटर ऑन करेंगे, <strong>Digital Bell अपने आप बैकग्राउंड में शुरू हो जाएगा</strong>। स्क्रीन पर कोई अनावश्यक विंडो नहीं खुलेगी, यह टास्कबार में नीचे दाईं ओर घड़ी के पास <strong>सिस्टम ट्रे (हिडन आइकॉन)</strong> में चुपचाप सक्रिय रहेगा।</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>सॉफ्टवेयर विंडो खोलना</h4>
+            <p>जब भी आपको समय सारणी देखनी हो या कोई बदलाव करना हो, टास्कबार में घड़ी के पास दिए गए <strong>घंटी आइकॉन 🔔</strong> पर क्लिक करें। मुख्य सॉफ्टवेयर तुरंत खुल जाएगा।</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>सत्र का चयन (ग्रीष्मकालीन / शीतकालीन)</h4>
+            <p>स्क्रीन पर दिए गए <strong>"ग्रीष्मकालीन (07:15 AM)"</strong> या <strong>"शीतकालीन (09:45 AM)"</strong> बटन पर क्लिक करके अपने स्कूल का वर्तमान सत्र चुनें।</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>पीरियड समय में बदलाव (Time Editing)</h4>
+            <p>यदि आपके विद्यालय के किसी पीरियड का समय सरकारी शिविरा पंचांग से भिन्न है, तो उस पीरियड के सामने दिए गए <strong>"समय बदलें"</strong> बटन (पेंसिल आइकॉन) पर क्लिक करें, नया समय भरें और हरे टिक बटन से पुष्टि करें।</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>मास्टर सेव बटन दबाएं (Critical Step)</h4>
+            <p>समय बदलने के बाद बाईं ओर दिए गए <strong>"💾 मास्टर सेटिंग्स सेव करें (Master Save & Lock)"</strong> बटन को अवश्य दबाएं! ऐसा करते ही आपकी सेटिंग्स कंप्यूटर की हार्ड डिस्क में हमेशा के लिए सुरक्षित हो जाएंगी और कंप्यूटर बंद या रीस्टार्ट होने पर भी कभी अपने आप नहीं बदलेंगी।</p>
+          </div>
+        </div>
+
+        <div class="step-box">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h4>प्रत्येक पीरियड के आगे "टेस्ट" बटन से जांचना</h4>
+            <p>प्रत्येक पीरियड के आगे एक <strong>"🔔 टेस्ट"</strong> बटन दिया गया है। इसे दबाकर आप तुरंत चेक कर सकते हैं कि पहले पीरियड पर 1 बार, दूसरे पर 2 बार, तीसरे पर 3 बार, मध्यान्तर पर 15 सेकंड और छुट्टी पर 30 सेकंड घंटी सही बज रही है या नहीं।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Period Strike Table -->
+      <div class="section">
+        <h2 class="section-title">🕒 4. राजस्थान शिविरा पंचांग समय-सारणी एवं घंटी संख्या</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>क्रम</th>
+                <th>घंटी / पीरियड विवरण</th>
+                <th>ग्रीष्मकालीन समय</th>
+                <th>शीतकालीन समय</th>
+                <th>घंटी प्रकार एवं संख्या</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td><strong>प्रथम सूचना घंटी</strong></td><td>07:15 AM</td><td>09:45 AM</td><td>1 बार सूचना चेतावनी (Alert Chime)</td></tr>
+              <tr><td>2</td><td><strong>द्वितीय सूचना घंटी</strong></td><td>07:30 AM</td><td>10:00 AM</td><td>2 बार सूचना चेतावनी (प्रार्थना हेतु)</td></tr>
+              <tr><td>3</td><td><strong>प्रार्थना सभा समाप्त / प्रथम पीरियड</strong></td><td>07:55 AM</td><td>10:25 AM</td><td><strong>1 बार Tan</strong> (पहला घंटा)</td></tr>
+              <tr><td>4</td><td><strong>द्वितीय पीरियड</strong></td><td>08:30 AM</td><td>11:05 AM</td><td><strong>2 बार Tan... Tan</strong> (दूसरा घंटा)</td></tr>
+              <tr><td>5</td><td><strong>तृतीय पीरियड</strong></td><td>09:05 AM</td><td>11:45 AM</td><td><strong>3 बार Tan... Tan... Tan</strong></td></tr>
+              <tr><td>6</td><td><strong>चतुर्थ पीरियड</strong></td><td>09:40 AM</td><td>12:25 PM</td><td><strong>4 बार Tan</strong></td></tr>
+              <tr><td>7</td><td><strong>मध्यान्तर (लंच / विश्राम)</strong></td><td>10:15 AM</td><td>01:05 PM</td><td><strong>15 सेकंड मध्यान्तर घंटी</strong></td></tr>
+              <tr><td>8</td><td><strong>पंचम पीरियड</strong></td><td>10:40 AM</td><td>01:30 PM</td><td><strong>5 बार Tan</strong></td></tr>
+              <tr><td>9</td><td><strong>षष्ठम पीरियड</strong></td><td>11:15 AM</td><td>02:10 PM</td><td><strong>6 बार Tan</strong></td></tr>
+              <tr><td>10</td><td><strong>सप्तम पीरियड</strong></td><td>11:50 AM</td><td>02:50 PM</td><td><strong>7 बार Tan</strong></td></tr>
+              <tr><td>11</td><td><strong>अष्टम पीरियड</strong></td><td>12:25 PM</td><td>03:25 PM</td><td><strong>8 बार Tan</strong></td></tr>
+              <tr><td>12</td><td><strong>विद्यालय अवकाश (Dismissal)</strong></td><td>01:00 PM</td><td>04:00 PM</td><td><strong>30 सेकंड लंबी छुट्टी की घंटी</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 5: Amplifier Connection -->
+      <div class="section">
+        <h2 class="section-title">🔊 5. स्कूल एम्प्लीफायर / साउंड सिस्टम कनेक्शन गाइड</h2>
+        <p>विद्यालय के लाउडस्पीकर सिस्टम से जोड़ने के लिए किसी विशेष केबल की आवश्यकता नहीं है:</p>
+        <div class="diagram-box">
+[कंप्यूटर / लैपटॉप]                                [विद्यालय एम्प्लीफायर / साउंड सिस्टम]
+  हरा ऑडियो पोर्ट  ===============================>   AUX / LINE IN पोर्ट
+  (3.5mm Headphone Jack)   (3.5mm to RCA Cable)         (Volume: 50% - 70%)
+        </div>
+        <ol style="margin-top:14px; padding-left:22px;">
+          <li>बाज़ार में मिलने वाली सामान्य <strong>3.5mm से RCA या AUX केबल</strong> लें।</li>
+          <li>केबल का एक सिरा कंप्यूटर के हरे ऑडियो जैक (स्पीकर पोर्ट) में लगाएं।</li>
+          <li>दूसरा सिरा स्कूल एम्प्लीफायर (जैसे Ahuja / Stranger) के <strong>AUX 1 या AUX 2</strong> इनपुट में लगाएं।</li>
+          <li>सॉफ्टवेयर में <strong>"🔔 टेस्ट"</strong> बटन दबाएं और एम्प्लीफायर का वॉल्यूम अपने स्कूल प्रांगण के अनुसार सेट करें।</li>
+        </ol>
+      </div>
+
+      <!-- Section 6: FAQs -->
+      <div class="section">
+        <h2 class="section-title">❓ 6. अक्सर पूछे जाने वाले प्रश्न (FAQs)</h2>
+        <div class="card" style="margin-bottom:12px;">
+          <h3>प्र. क्या कंप्यूटर बंद होने पर सॉफ्टवेयर खुला रहना चाहिए?</h3>
+          <p><strong>उत्तर:</strong> नहीं। जब कंप्यूटर बंद (Shut Down) होगा तो कंप्यूटर बंद रहेगा। जैसे ही कंप्यूटर अगली सुबह चालू होगा, सॉफ्टवेयर खुद-ब-खुद ऑटो-स्टार्ट होकर टास्कबार में चालू हो जाएगा।</p>
+        </div>
+        <div class="card" style="margin-bottom:12px;">
+          <h3>प्र. यदि ऊपर दाईं ओर लाल 'X' बटन दबा दिया जाए तो क्या घंटी बंद हो जाएगी?</h3>
+          <p><strong>उत्तर:</strong> बिल्कुल नहीं! 'X' बटन दबाने पर सॉफ्टवेयर बंद नहीं होता, बल्कि टास्कबार में छिप जाता है और समय पर घंटी बजाता रहता है। पूरी तरह बंद करने के लिए ट्रे आइकॉन पर राइट क्लिक करके Exit चुनना होता है।</p>
+        </div>
+        <div class="card">
+          <h3>प्र. क्या समय बदलने के बाद बार-बार सेव करना पड़ेगा?</h3>
+          <p><strong>उत्तर:</strong> नहीं। सिर्फ एक बार <strong>"मास्टर सेटिंग्स सेव करें"</strong> बटन दबाएं। आपकी सेटिंग्स कंप्यूटर में हमेशा के लिए लॉक हो जाएंगी।</p>
+        </div>
+      </div>
+
+      <!-- Designer Box -->
+      <div class="designer-box">
+        <h3>✨ सॉफ्टवेयर डिज़ाइनर एवं तकनीकी सहायता</h3>
+        <p style="margin-bottom: 14px;">इस सॉफ्टवेयर के निर्माण, अपडेट और तकनीकी सहयोग हेतु संपर्क करें:</p>
+        <div class="designer-details">
+          <div><strong>डिज़ाइनर नाम:</strong> नगजी यादव साकोदरा</div>
+          <div><strong>मोबाइल नंबर:</strong> +91 9982151938</div>
+          <div><strong>ग्राम:</strong> साकोदरा (V Sakodara)</div>
+          <div><strong>पोस्ट:</strong> चीखली (P Chikhali)</div>
+          <div><strong>ज़िला:</strong> डूंगरपुर (राजस्थान) 314030</div>
+          <div><strong>सॉफ्टवेयर प्रकार:</strong> 100% फ्री एवं निःशुल्क शैक्षणिक सहयोग</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 Digital Bell Pro | Designed by Nagji Yadav Sakodara (नगजी यादव साकोदरा) | All Rights Reserved</p>
+    </div>
+  </div>
+</body>
+</html>

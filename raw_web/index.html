@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Digital Bell Pro - स्कूल ऑटोमैटिक घंटी प्रणाली</title>
+    <meta name="description" content="ऑटोमैटिक स्कूल डिजिटल घंटी प्रणाली" />
+    <meta name="author" content="Nagji Yadav Sakodara" />
+    <link rel="icon" type="image/png" href="/assets/tray_icon.png" />
+    <script type="module" crossorigin src="/assets/index-BVS57iLR.js?v=2.0.1"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-RWMWRD8M.css?v=2.0.1">
+    <style>
+      /* Company-Grade Professional Custom Bar & Modal - Sky Blue Theme */
+      .designer-top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 44px;
+        background: linear-gradient(90deg, #0369a1 0%, #0284c7 50%, #075985 100%);
+        color: #f8fafc;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        z-index: 9999;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 2px 10px rgba(3, 105, 161, 0.25);
+      }
+      .designer-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+      .designer-brand img {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      }
+      .designer-info-text {
+        color: #e0f2fe;
+        font-size: 12px;
+      }
+      .designer-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .action-btn {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        color: #f8fafc !important;
+        border: 1px solid #475569;
+        padding: 5px 13px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 11.5px;
+        font-weight: 700;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      }
+      .action-btn:hover {
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        border-color: #38bdf8;
+        color: #ffffff !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.45);
+      }
+      .action-btn.gold {
+        background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+        border-color: #fde68a;
+        color: #ffffff !important;
+      }
+      .action-btn.gold:hover {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.45);
+        transform: translateY(-2px);
+      }
+
+      /* High-Contrast Explicit Colors for ALL Buttons & Components */
+      .bell-btn-master {
+        background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #86efac !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.4) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+      }
+      .bell-btn-master:hover {
+        background: linear-gradient(135deg, #166534 0%, #15803d 100%) !important;
+        box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6) !important;
+      }
+
+      .bell-btn-running {
+        background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #6ee7b7 !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35) !important;
+      }
+      .bell-btn-paused {
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #fde68a !important;
+        font-weight: 800 !important;
+      }
+      .bell-btn-stop {
+        background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #fca5a5 !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35) !important;
+      }
+      .bell-btn-stop:hover {
+        background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%) !important;
+      }
+
+      .bell-btn-long {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #93c5fd !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(30, 58, 138, 0.35) !important;
+      }
+      .bell-btn-period {
+        background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #fdba74 !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35) !important;
+      }
+
+      .bell-btn-season-summer {
+        background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #fed7aa !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35) !important;
+      }
+      .bell-btn-season-winter {
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        border: 2px solid #bfdbfe !important;
+        font-weight: 800 !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+      }
+      .bell-btn-season-inactive {
+        background: #f1f5f9 !important;
+        color: #1e293b !important;
+        border: 1px solid #cbd5e1 !important;
+        font-weight: 700 !important;
+      }
+      .bell-btn-season-inactive:hover {
+        background: #e2e8f0 !important;
+      }
+
+      .bell-btn-test {
+        background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%) !important;
+        color: #ffffff !important;
+        border: 1px solid #b45309 !important;
+        font-weight: 800 !important;
+        padding: 5px 12px !important;
+        border-radius: 6px !important;
+        box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35) !important;
+        cursor: pointer !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+      }
+      .bell-btn-test:hover {
+        background: linear-gradient(135deg, #b45309 0%, #d97706 100%) !important;
+        color: #ffffff !important;
+        transform: scale(1.05) !important;
+      }
+      .bell-btn-test-active {
+        background: #dc2626 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
+        font-weight: 900 !important;
+        animation: pulse 1s infinite !important;
+      }
+
+      .bell-btn-sound-active {
+        background: #0284c7 !important;
+        color: #ffffff !important;
+        border: 1px solid #0369a1 !important;
+        font-weight: 700 !important;
+      }
+      .bell-btn-sound-inactive {
+        background: #f1f5f9 !important;
+        color: #334155 !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+
+      .bell-badge-autostart {
+        background: #ecfdf5 !important;
+        color: #065f46 !important;
+        border: 1px solid #a7f3d0 !important;
+        font-weight: 700 !important;
+      }
+
+      /* Timetable Styling - Crystal Clear High Contrast */
+      .bell-table-container {
+        background: #ffffff !important;
+        border: 2px solid #bae6fd !important;
+        border-radius: 14px !important;
+        overflow-x: auto !important;
+        box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.15) !important;
+      }
+      .bell-table-header {
+        background: linear-gradient(90deg, #075985 0%, #0369a1 100%) !important;
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        font-size: 13px !important;
+      }
+      .bell-table-header th {
+        color: #ffffff !important;
+        padding: 10px 8px !important;
+      }
+      .bell-row-even {
+        background: #ffffff !important;
+      }
+      .bell-row-odd {
+        background: #f8fafc !important;
+      }
+      .bell-row-current {
+        background: #fef3c7 !important;
+        border-left: 4px solid #f59e0b !important;
+      }
+      .bell-row-active-test {
+        background: #ffedd5 !important;
+        border-left: 4px solid #ea580c !important;
+      }
+      .bell-cell-time {
+        color: #0369a1 !important;
+        font-weight: 800 !important;
+        font-family: 'Consolas', 'Courier New', monospace !important;
+        font-size: 13px !important;
+      }
+      .bell-cell-label {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+        font-size: 13px !important;
+      }
+      .bell-cell-count {
+        color: #475569 !important;
+        font-weight: 700 !important;
+        font-size: 12px !important;
+      }
+
+      /* Adjust body padding for top bar */
+      body {
+        padding-top: 48px !important;
+        padding-bottom: 52px !important;
+        background: #f0f9ff !important;
+      }
+
+      /* Bottom Non-Intrusive Sponsored / Designer Footer Banner - Sky Blue Theme */
+      .bottom-ad-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 48px;
+        background: linear-gradient(90deg, #0c4a6e 0%, #075985 50%, #0c4a6e 100%);
+        border-top: 2px solid #38bdf8;
+        color: #f0f9ff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        font-size: 12.5px;
+        z-index: 9999;
+        box-shadow: 0 -2px 10px rgba(3, 105, 161, 0.2);
+      }
+      .ad-badge {
+        background: rgba(56, 189, 248, 0.25);
+        color: #bae6fd;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-right: 8px;
+        border: 1px solid rgba(56, 189, 248, 0.5);
+      }
+      .banner-contact {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .phone-pill {
+        background: #0284c7;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 12px;
+        border: 1px solid #38bdf8;
+        box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+      }
+
+      /* Modern Modal Dialog - Sky Blue Theme */
+      .custom-modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(12, 74, 110, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .custom-modal {
+        background: #ffffff;
+        color: #0f172a;
+        max-width: 650px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 20px 25px -5px rgba(2, 132, 199, 0.25);
+        overflow: hidden;
+        border: 1px solid #bae6fd;
+        animation: modalFadeIn 0.25s ease-out;
+      }
+      @keyframes modalFadeIn {
+        from { opacity: 0; transform: translateY(-12px) scale(0.97); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .custom-modal-header {
+        background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+        color: #fff;
+        padding: 16px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .custom-modal-header h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .close-btn {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.85;
+      }
+      .close-btn:hover {
+        opacity: 1;
+      }
+      .custom-modal-body {
+        padding: 20px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .designer-detail-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+        background: #f0f9ff;
+        padding: 14px;
+        border-radius: 10px;
+        border: 1px solid #bae6fd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top Professional Bar -->
+    <div class="designer-top-bar">
+      <div class="designer-brand">
+        <img src="/assets/tray_icon.png" alt="Logo" />
+        <span>DIGITAL BELL PRO</span>
+        <span class="designer-info-text">| स्वचालित स्कूल घंटी प्रणाली</span>
+      </div>
+      <div class="designer-actions">
+        <button class="action-btn" onclick="testBellRing()">🔔 पीरियड घंटी टेस्ट</button>
+        <button class="action-btn" onclick="testLongBellRing()">📢 लंबी घंटी टेस्ट</button>
+        <button class="action-btn" onclick="openManual()">📖 उपयोगकर्ता पुस्तिका (Manual)</button>
+        <button class="action-btn gold" onclick="openDesignerModal()">✨ डिज़ाइनर संपर्क</button>
+      </div>
+    </div>
+
+    <div id="root"></div>
+
+    <!-- Bottom Non-Intrusive Banner (Ad / Designer Announcement) -->
+    <div class="bottom-ad-banner">
+      <div>
+        <span class="ad-badge">Official</span>
+        <span>सॉफ्टवेयर डिज़ाइनर: <strong>नगजी यादव साकोदरा</strong>, चीखली (डूंगरपुर) राजस्थान 314030</span>
+      </div>
+      <div class="banner-contact">
+        <span>सहायता एवं ऑर्डर:</span>
+        <span class="phone-pill">📞 9982151938</span>
+      </div>
+    </div>
+
+    <!-- Designer Info Modal -->
+    <div class="custom-modal-backdrop" id="designerModal">
+      <div class="custom-modal">
+        <div class="custom-modal-header">
+          <h3>✨ सॉफ्टवेयर डिज़ाइनर एवं तकनीकी सहयोग</h3>
+          <button class="close-btn" onclick="closeDesignerModal()">&times;</button>
+        </div>
+        <div class="custom-modal-body">
+          <p>यह <strong>Digital Bell (ऑटोमैटिक स्कूल घंटी सिस्टम)</strong> विद्यालयों के समय प्रबंधन को पूर्णतः स्वचालित एवं सटीक बनाने हेतु तैयार किया गया है।</p>
+          <div class="designer-detail-grid">
+            <div><strong>डिज़ाइनर:</strong> नगजी यादव साकोदरा</div>
+            <div><strong>मोबाइल नंबर:</strong> <a href="tel:9982151938" style="color:#2563eb; text-decoration:none; font-weight:700;">9982151938</a></div>
+            <div><strong>ग्राम:</strong> साकोदरा (V Sakodara)</div>
+            <div><strong>पोस्ट:</strong> चीखली (P Chikhali)</div>
+            <div><strong>ज़िला:</strong> डूंगरपुर (राजस्थान)</div>
+            <div><strong>पिन कोड:</strong> 314030</div>
+          </div>
+          <div style="margin-top: 16px; text-align: right;">
+            <button class="action-btn" style="background:#0f172a; color:#fff;" onclick="closeDesignerModal()">बंद करें (Close)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- In-App User Manual Modal (Requirement: How to use manual in software) -->
+    <div class="custom-modal-backdrop" id="manualModal">
+      <div class="custom-modal" style="max-width: 950px; height: 85vh; display: flex; flex-direction: column;">
+        <div class="custom-modal-header">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span>📖</span>
+            <h3 style="margin: 0; font-size: 1.15rem;">उपयोगकर्ता पुस्तिका एवं संचालन मार्गदर्शिका (How to Use Manual)</h3>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <button class="action-btn" style="background: rgba(255,255,255,0.25); font-size: 11px;" onclick="window.open('/USER_MANUAL_HINDI.html', '_blank')">↗ नई विंडो में खोलें</button>
+            <button class="action-btn" style="background: rgba(255,255,255,0.25); font-size: 11px;" onclick="document.getElementById('manualIframe').contentWindow.print()">🖨️ प्रिंट करें</button>
+            <button class="close-btn" onclick="closeManualModal()">&times;</button>
+          </div>
+        </div>
+        <div style="flex: 1; padding: 0; overflow: hidden; background: #fff;">
+          <iframe id="manualIframe" src="/USER_MANUAL_HINDI.html" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+        <div style="padding: 10px 16px; background: #f0f9ff; border-top: 1px solid #bae6fd; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 12px; color: #0369a1;">💡 Windows 7 SP1 (32-bit & 64-bit) / 8 / 10 / 11 | 100% ऑफलाइन कार्य करता है</span>
+          <button class="action-btn" style="background: #0369a1; color: #fff;" onclick="closeManualModal()">बंद करें (Close)</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openDesignerModal() {
+        document.getElementById('designerModal').style.display = 'flex';
+      }
+      function closeDesignerModal() {
+        document.getElementById('designerModal').style.display = 'none';
+      }
+      function openManual() {
+        document.getElementById('manualModal').style.display = 'flex';
+      }
+      function closeManualModal() {
+        document.getElementById('manualModal').style.display = 'none';
+      }
+      function testBellRing() {
+        try {
+          const audio = new Audio('/assets/real_brass_gong_tan.wav');
+          audio.play().catch(e => {
+            const fallback = new Audio('/assets/school_bell_Tan-D0KlyVNl.wav');
+            fallback.play().catch(console.log);
+          });
+        } catch(e) {}
+      }
+      function testLongBellRing() {
+        try {
+          const audio = new Audio('/assets/chutti_bell.wav');
+          audio.play().catch(e => {
+            const fallback = new Audio('/assets/Long-bIIZeSmH.wav');
+            fallback.play().catch(console.log);
+          });
+          setTimeout(() => {
+            try { audio.pause(); audio.currentTime = 0; } catch(e) {}
+          }, 5000);
+        } catch(e) {}
+      }
+      // Close modals on backdrop click
+      window.addEventListener('click', function(e) {
+        const designerModal = document.getElementById('designerModal');
+        const manualModal = document.getElementById('manualModal');
+        if (e.target === designerModal) designerModal.style.display = 'none';
+        if (e.target === manualModal) manualModal.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

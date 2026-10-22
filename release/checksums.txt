@@ -1,0 +1,10 @@
+# SHA-256 Checksums for Digital Bell v1.0.0
+# Compatibility: Windows 7 (32-bit & 64-bit), Windows 8, Windows 8.1, Windows 10, Windows 11
+# Generated: 2026-10-02T16:03:48.776Z
+
+6d90d9ccf6878eac65ed16f4db2f04fb22211095aaa3837be3530c6315305221 *DigitalBellSetup.exe
+6d90d9ccf6878eac65ed16f4db2f04fb22211095aaa3837be3530c6315305221 *DigitalBellSetup_32bit.exe
+356f14b33f31ed2843fd3970129832d70e9cdada71e6e8454370a0850a00ff3c *DigitalBellSetup_64bit.exe
+657491351816e0205d9c0be0bcb38cf66b647be9a99d2c4e895554caba6f1eec *DigitalBell-Portable.zip
+657491351816e0205d9c0be0bcb38cf66b647be9a99d2c4e895554caba6f1eec *DigitalBell-Portable-32bit.zip
+43c3ba2cc332efdda1f6bdb88f0e076fff85b4ccc79c45f4cad43ef677bb7372 *DigitalBell-Portable-64bit.zip

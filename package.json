@@ -1,0 +1,65 @@
+{
+  "name": "digital-bell",
+  "version": "1.0.0",
+  "description": "Digital Bell - Automated School Bell System",
+  "main": "index.js",
+  "author": "Nagji Yadav Sakodara <9982151938>",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "build-installer": "electron-builder --win nsis",
+    "build-portable": "electron-builder --win --dir",
+    "clean-build": "node -e \"const fs = require('fs'); ['installer', 'release'].forEach(d => fs.rmSync(d, {recursive: true, force: true})); console.log('Clean completed.');\"",
+    "verify-dependencies": "node -e \"const fs = require('fs'); ['index.js','build/icon.ico','build/tray.png','raw_web/index.html','raw_web/USER_MANUAL_HINDI.html','raw_web/assets/school_bell_Tan-D0KlyVNl.wav','raw_web/assets/Long-bIIZeSmH.wav'].forEach(f => { if(!fs.existsSync(f)) throw new Error(f + ' missing'); }); console.log('✓ All runtime dependencies and assets verified!');\"",
+    "release": "node scripts/release.js"
+  },
+  "build": {
+    "npmRebuild": false,
+    "appId": "com.digitalbell.school",
+    "productName": "Digital Bell",
+    "copyright": "Copyright © 2026 Nagji Yadav Sakodara. All rights reserved.",
+    "directories": {
+      "output": "installer"
+    },
+    "files": [
+      "index.js",
+      "raw_web/**/*",
+      "build/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "dir",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Digital Bell",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "runAfterFinish": true,
+      "artifactName": "DigitalBellSetup_${arch}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "22.3.27",
+    "electron-builder": "^26.0.2"
+  }
+}
